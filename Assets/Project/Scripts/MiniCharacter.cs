@@ -13,10 +13,16 @@ public class MiniCharacter : MonoBehaviour
     [Header("** Camera Settings **")]
     public GameObject CameraJoint;    
 
+    [Header("Weapon Settings")]
+    public BaseWeapon weapon;
+
+
     private Vector2 _inputMoveValue;    // Moveの入力値
     private Vector2 _inputLookValue;    // Lookの入力値
     private float _inputAttackValue;    // Attackの入力値
     private Vector3 angles;             // キャラクターの向き
+
+    
 
     void Start()
     {
@@ -28,6 +34,12 @@ public class MiniCharacter : MonoBehaviour
         Move();     //移動メソッドを呼び出す
 
         Look();     //回転メソッドを呼び出す
+
+        if(_inputAttackValue > 0.1f)
+        {
+            weapon.OnTriggerAction();   // 武器のトリガーアクションを呼び出す
+        }
+        
     }
 
     //移動メソッド
