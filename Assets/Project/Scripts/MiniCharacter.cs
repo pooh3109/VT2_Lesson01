@@ -71,6 +71,8 @@ public class MiniCharacter : MonoBehaviour
         CameraJoint.transform.eulerAngles = new Vector3(angles.x, angles.y, 0);
     }
 
+    
+
     void OnMove(InputValue value)
     {
         _inputMoveValue = value.Get<Vector2>();
